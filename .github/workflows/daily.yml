@@ -14,4 +14,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - run: python main.py
+      - name: Install OpenAI package
+        run: pip install openai
+
+      - name: Run Python
+        run: python main.py
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
